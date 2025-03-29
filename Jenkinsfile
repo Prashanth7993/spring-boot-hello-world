@@ -9,7 +9,7 @@ pipeline {
         stage('cloning repo') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Prashanth7993/spring-boot-hello-world.git'
+                git branch: 'main', url: 'https://github.com/Prashanth7993/spring-boot-hello-world.git'
                 echo "cloning project done"
             }
         }
