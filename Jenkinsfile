@@ -23,7 +23,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Docker-hub-Credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         sh "docker login -u $DOCKER_USER -p $DOCKER_PASS"
-                        sh "docker tag frontend $DOCKER_USER/java-app:v1"
+                        sh "docker tag java-app $DOCKER_USER/java-app:v1"
                         sh "docker push $DOCKER_USER/java-app:v1"
                         echo "Sucefully image pushed to docker hub"
                  }
