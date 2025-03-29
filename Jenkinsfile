@@ -37,7 +37,6 @@ pipeline {
         }
         stage('creating service') {
             steps {
-                sh "kubectl delete svc --all"
                 sh "kubectl expose deploy java-app-kube --type=NodePort --port=8080 --target-port=8080"
             }
         }
