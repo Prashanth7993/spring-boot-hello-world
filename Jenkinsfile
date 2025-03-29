@@ -35,5 +35,11 @@ pipeline {
                 sh "kubectl create deploy java-app-kube --image=prashanth7993/java-app:v1 --replicas=3"
             }
         }
+        stage('creating service') {
+            steps {
+                sh "kubectl delete svc --all"
+                sh "kubectl expose deploy java-app-kube --type=nodePort"
+            }
+        }
     }
 }
