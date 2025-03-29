@@ -29,5 +29,11 @@ pipeline {
                  }
             }
         }
+        stage('Deploying into kubernetes') {
+            steps {
+                sh "kubectl delete deploy --all"
+                sh "kubectl create deploy java-app-kube --image=prashanth7993/java-app:v1 --replicas=3"
+            }
+        }
     }
 }
