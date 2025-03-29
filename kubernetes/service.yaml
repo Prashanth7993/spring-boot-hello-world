@@ -1,0 +1,63 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2025-03-29T06:53:57Z"
+    labels:
+      app: java-app-kube
+    name: java-app-kube
+    namespace: default
+    resourceVersion: "9293"
+    uid: f545bcc9-cb8c-4430-b19f-795b43168e47
+  spec:
+    clusterIP: 10.98.116.121
+    clusterIPs:
+    - 10.98.116.121
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 32209
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: java-app-kube
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2025-03-29T06:53:58Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "9319"
+    uid: 02b22d6e-8309-4fdb-9ad9-15c2f09da00b
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
