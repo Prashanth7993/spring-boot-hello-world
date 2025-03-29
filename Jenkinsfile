@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Building Project using dockerfile') {
             steps {
-                sh "docker rmi $(docker images)"
+                sh "docker rmi -f $(docker images -aq)"
                 sh "docker build -t java-app ."
                 echo "Building image done."
             }
