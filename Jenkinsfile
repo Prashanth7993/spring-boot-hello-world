@@ -19,5 +19,12 @@ pipeline {
                 echo "Building image done."
             }
         }
+        stage('Pushing image to hub.docker.com'){
+            steps {
+                sh "docker tag java-app prashanth7993:java-app:v1'
+                sh "docker push prashanth7993:java-app:v1"
+                echo "Sucessfully image pushed to docker hub"
+            }
+        }
     }
 }
