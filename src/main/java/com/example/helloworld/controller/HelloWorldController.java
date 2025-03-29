@@ -8,6 +8,6 @@ public class HelloWorldController {
 
     @GetMapping("/hello")
     public String sendGreetings() {
-        return "Hello, World! changes made after deploy";
+        return "Hello, World! changes made deploy";
     }
 }
